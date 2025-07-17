@@ -1,58 +1,46 @@
-# Yacht Management System
+# Yacht Management System ⛵
 
-## Description
-This Laravel-based application was created as a laboratory exercise at the faculty for the subject *Implementation of Free and Open Source Systems*. It is designed to manage private yachts, allowing users to browse available yachts, book trips, and leave reviews. The system includes CRUD operations for yachts, advanced management of reservations, and functionality to create and display reviews.
+**Yacht Management System** is a Laravel-based web application developed as part of a laboratory exercise for the course *Implementation of Free and Open Source Systems*. The system provides a complete solution for managing private yachts, allowing users to browse available yachts, book trips, and leave reviews. It includes full CRUD functionality, reservation workflows, and review management with robust data validation and business logic.
 
-## Key Features
-- **Yacht Management:**
-  - List all yachts with search and filtering by type (e.g., "super yacht" or "classic").
-  - Add new yachts with validations (e.g., type, capacity, hourly rate).
-  - Update yacht details.
-  - Delete yachts, with automatic removal of associated reservations and reviews.
+## 🎯 Project Purpose
+- Demonstrate Laravel capabilities in building real-world management systems.
+- Provide hands-on experience with CRUD operations, data validation, and design patterns.
+- Emphasize clean architecture with observer patterns and factory support for testing.
 
-- **Reservation Management:**
-  - Book trips for yachts with valid details and automatic status assignment to "pending."
-  - Update reservation status (e.g., "confirmed" or "cancelled").
-  - List and filter reservations by status with detailed information.
+## 🌟 Key Features
 
-- **Review Management:**
-  - Create reviews for confirmed reservations.
-  - Display reviews with filtering by status and include yacht and reservation details.
+### 🛥️ Yacht Management
+- **List & Search Yachts:** Display all yachts with search and filter options (e.g., by type: *super yacht*, *classic*).
+- **Create Yachts:** Add new yachts with validations on type, capacity, and hourly rate.
+- **Edit Yachts:** Update yacht details at any time.
+- **Delete Yachts:** Automatically remove related reservations and reviews via Laravel observers.
 
-- **Validation:**
-  - Enforce data integrity for yachts, reservations, and reviews.
-  - Automatically manage cascading deletions of reservations and reviews.
+### 📆 Reservation Management
+- **Book Trips:** Users can submit reservations with proper validation. All new reservations are set to `pending` by default.
+- **Update Status:** Admins or owners can confirm or cancel reservations.
+- **Filter & List:** Reservations can be listed and filtered by status, with detailed yacht and user info.
 
-- **Observer Pattern:**
-  - Automatically delete associated reservations and reviews when a yacht is removed.
-  - Default status "pending" for new reservations and reviews.
+### 📝 Review Management
+- **Submit Reviews:** Users can leave reviews only for confirmed reservations.
+- **Display Reviews:** Show all reviews with filters by status, including related yacht and reservation info.
 
-- **Factory Support:**
-  - Generate sample data for yachts, reservations, and reviews for testing purposes.
+### ✅ Validation & Business Logic
+- Enforce strong data integrity for all models.
+- Automatically handle cascading deletions of dependent data.
+- Use of Laravel observers to manage model state and associated cleanup.
 
-## Database Schema
-### Yachts Table:
-- **id**: Unique identifier.
-- **name**: Yacht name.
-- **type**: Yacht type ("super yacht" or "classic").
-- **capacity**: Maximum capacity.
-- **hourly_rate**: Hourly rate for booking.
-- **created_at, updated_at**: Timestamps.
+### 🧪 Factory Support
+- **Sample Data Generation:** Easily generate yachts, reservations, and reviews using Laravel factories for development and testing.
 
-### Reservations Table:
-- **id**: Unique identifier.
-- **yacht_id**: Associated yacht.
-- **user_name**: User's name.
-- **reservation_date**: Date of reservation.
-- **duration_hours**: Duration in hours.
-- **status**: Status ("pending," "confirmed," "cancelled").
-- **created_at, updated_at**: Timestamps.
+## 🛠️ Technologies Used
+- **Backend:** PHP (Laravel Framework)
+- **Frontend:** Blade Templates, HTML, CSS (Bootstrap optional)
+- **Database:** MySQL
+- **Testing:** Laravel Factories, Seeders, Artisan commands
 
-### Reviews Table:
-- **id**: Unique identifier.
-- **reservation_id**: Associated reservation.
-- **reviewer_name**: Name of the reviewer.
-- **text**: Review text.
-- **rating**: Rating (1-5).
-- **status**: Status ("pending," "approved," "declined").
-- **created_at, updated_at**: Timestamps.
+## 🚀 Educational Value
+This project is ideal for:
+- Learning Laravel’s MVC architecture and Eloquent ORM.
+- Practicing the Observer Design Pattern in real applications.
+- Understanding cascading deletions and data lifecycle management.
+- Exploring CRUD systems with relational integrity and business rules.
